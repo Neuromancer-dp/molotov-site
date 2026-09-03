@@ -6,6 +6,7 @@
 <title>Contact — Molotov Studios</title>
 <meta name="description" content="Communication protocol for reaching Molotov Studios.">
 <link rel="stylesheet" href="css/style.css">
+<script>document.documentElement.classList.add('js-reveal');</script>
 </head>
 <body>
 
@@ -21,6 +22,7 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="projects.html">Projects</a></li>
+          <li><a href="blog.html">Blog</a></li>
           <li><a href="contact.html" aria-current="page">Contact</a></li>
         </ul>
       </nav>
@@ -31,7 +33,7 @@
   <main class="main">
 
     <section class="section" style="padding-top: clamp(3rem, 8vw, 5rem);">
-      <div class="shell">
+      <div class="shell" data-reveal-group>
         <span class="eyebrow">// COMMUNICATION PROTOCOL</span>
         <h1 class="display page-headline">Get in touch</h1>
 
@@ -43,7 +45,7 @@
 
     <section class="section section-border-top">
       <div class="shell">
-        <div class="dossier">
+        <div class="dossier" data-reveal-group>
           <div class="dossier-row">
             <span class="label">Email</span>
             <span class="value"><a href="mailto:anirudhmallick2001@gmail.com">anirudhmallick2001@gmail.com</a></span>
@@ -79,6 +81,9 @@
 
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
