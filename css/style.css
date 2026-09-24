@@ -75,6 +75,24 @@ button:focus-visible {
 }
 
 /* -------------------------------------------------------------------------
+   Section marker (numbered site-section label + recurring glyph)
+   ------------------------------------------------------------------------- */
+.section-marker {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.65rem;
+}
+
+.section-marker .marker-glyph {
+  color: var(--accent);
+  margin-right: 0.3em;
+}
+
+/* -------------------------------------------------------------------------
    Utility text styles
    ------------------------------------------------------------------------- */
 .eyebrow {
@@ -261,6 +279,131 @@ button:focus-visible {
 .status-line .sep { opacity: 0.5; }
 .status-line .live-tick { color: var(--accent); }
 .status-line .status-value { color: var(--text); }
+
+/* -------------------------------------------------------------------------
+   HUD panel (live status readout)
+   ------------------------------------------------------------------------- */
+.hud-panel {
+  position: absolute;
+  top: clamp(1.5rem, 4vw, 2.5rem);
+  right: var(--gutter);
+  z-index: 2;
+  background: rgba(20, 20, 18, 0.72);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid var(--border);
+  padding: 0.9rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 200px;
+}
+
+.hud-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.hud-key { color: var(--text-muted); }
+.hud-val { color: var(--text); }
+.hud-row:first-child .hud-val { color: var(--accent); }
+
+@media (max-width: 780px) {
+  .hud-panel {
+    position: static;
+    margin: 0 0 2.25rem;
+    min-width: 0;
+  }
+}
+
+/* -------------------------------------------------------------------------
+   Three.js scroll centerpiece
+   ------------------------------------------------------------------------- */
+.centerpiece-section {
+  position: relative;
+  height: 220vh;
+}
+
+.centerpiece-stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.centerpiece-stage .shell {
+  position: absolute;
+  top: clamp(2rem, 6vw, 3.5rem);
+  left: 0;
+  right: 0;
+  pointer-events: none;
+}
+
+#centerpiece-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.centerpiece-hud {
+  position: absolute;
+  left: var(--gutter);
+  right: var(--gutter);
+  bottom: clamp(1.5rem, 5vw, 3rem);
+  max-width: calc(var(--container) - var(--gutter) * 2);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.hud-bar {
+  position: relative;
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+  overflow: hidden;
+}
+
+.hud-fill {
+  position: absolute;
+  inset: 0;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.hud-value {
+  min-width: 3.5ch;
+  text-align: right;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 640px) {
+  .centerpiece-section { height: 160vh; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .centerpiece-section { height: auto; }
+  .centerpiece-stage { position: relative; height: 56vh; }
+}
 
 /* -------------------------------------------------------------------------
    Section wrapper
